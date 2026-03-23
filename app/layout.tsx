@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Sierra Finance",
   },
+  metadataBase: new URL("https://sierrafinance.vercel.app"),
+  other: {
+    "theme-color": "#1a2749",
+    "msapplication-TileColor": "#1a2749",
+  },
   twitter: {
     card: "summary_large_image",
     title: "Sierra Finance | Invoice Factoring Made Simple",
