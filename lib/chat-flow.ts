@@ -589,12 +589,37 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
   },
 ];
 
-// Default fallback response
-export const FALLBACK_RESPONSE: BotResponse = {
-  text: "I didn't quite catch that, but I'm here to help you get funded. Let me know what you'd like to explore.",
+// Off-topic / profanity detection
+const OFF_TOPIC_WORDS = [
+  "fuck", "shit", "damn", "ass", "bitch", "hell", "crap",
+  "test", "testing", "asdf", "aaa", "xxx", "lol", "lmao",
+  "pizza", "weather", "sports", "game", "movie",
+  "hello world", "lorem ipsum", "blah",
+];
+
+function isOffTopic(input: string): boolean {
+  const lower = input.toLowerCase().trim();
+  if (lower.length < 3) return true;
+  return OFF_TOPIC_WORDS.some((w) => lower.includes(w));
+}
+
+export const OFF_TOPIC_RESPONSE: BotResponse = {
+  text: "It looks like that's not related to invoice factoring or funding. I'm specifically built to help you turn unpaid invoices into cash. Let's get back on track.",
   quickReplies: [
-    { label: "Start my application", value: "get started" },
-    { label: "How does factoring work?", value: "question about process" },
-    { label: "Talk to a specialist", value: "contact information" },
+    { label: "Start my application", value: "get started", icon: "bx bx-right-arrow-alt" },
+    { label: "How does factoring work?", value: "question about process", icon: "bx bx-help-circle" },
+    { label: "Talk to a specialist", value: "contact information", icon: "bx bx-phone" },
   ],
 };
+
+// Default fallback response (matched nothing but seems on-topic)
+export const FALLBACK_RESPONSE: BotResponse = {
+  text: "I'm not sure I understood that, but I'm here to help you get funded. Try one of the options below or rephrase your question.",
+  quickReplies: [
+    { label: "Start my application", value: "get started", icon: "bx bx-right-arrow-alt" },
+    { label: "How does factoring work?", value: "question about process", icon: "bx bx-help-circle" },
+    { label: "Talk to a specialist", value: "contact information", icon: "bx bx-phone" },
+  ],
+};
+
+export { isOffTopic };

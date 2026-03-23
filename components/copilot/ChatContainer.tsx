@@ -15,7 +15,9 @@ import { ApplicationSummary } from "./cards/ApplicationSummary";
 import {
   CONVERSATION_STEPS,
   FALLBACK_RESPONSE,
+  OFF_TOPIC_RESPONSE,
   findBestMatch,
+  isOffTopic,
   type BotResponse,
   type CardData,
   type QuickReply,
@@ -167,9 +169,15 @@ export function ChatContainer() {
     setMessages((prev) => [...prev, userMsg]);
     setCurrentQuickReplies([]);
     setAttachedFiles([]);
-    const match = findBestMatch(input, CONVERSATION_STEPS);
-    const response = match ? match.response : FALLBACK_RESPONSE;
-    addBotMessage(response);
+
+    // Check off-topic first, then try matching
+    if (isOffTopic(input)) {
+      addBotMessage(OFF_TOPIC_RESPONSE);
+    } else {
+      const match = findBestMatch(input, CONVERSATION_STEPS);
+      const response = match ? match.response : FALLBACK_RESPONSE;
+      addBotMessage(response);
+    }
   }
 
   return (
