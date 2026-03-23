@@ -5,9 +5,9 @@ import "boxicons/css/boxicons.min.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sierra Finance | Get Funded Through Conversation",
+  title: "Sierra Finance | Invoice Factoring Made Simple",
   description:
-    "Skip the paperwork. Sierra Finance's AI copilot walks you through invoice factoring in minutes, not days.",
+    "Turn your unpaid invoices into same-day cash. Sierra Finance walks you through invoice factoring in minutes, not days.",
 };
 
 export default function RootLayout({

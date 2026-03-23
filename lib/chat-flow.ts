@@ -1,5 +1,5 @@
-// ─── Scripted Conversation Flow for Sierra Finance Intake Copilot ───
-// No AI backend — all responses are pre-authored and fuzzy-matched
+// ─── Scripted Conversation Flow for Sierra Finance ───
+// No AI backend, all responses are pre-authored and fuzzy-matched
 
 export type QuickReply = {
   label: string;
@@ -100,7 +100,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       "invoice",
     ],
     response: {
-      text: "Welcome to Sierra Finance. I'm your funding copilot — I'll walk you through the entire process in just a few minutes. No paperwork, no waiting on hold.",
+      text: "Welcome to Sierra Finance. I'll walk you through the entire process in just a few minutes. No paperwork, no waiting on hold.",
       conclusion:
         "Let's start with the basics. What's your company name and what industry are you in?",
       quickReplies: [
@@ -126,7 +126,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       "truck",
     ],
     response: {
-      text: "Great — trucking is one of our core specialties. We work with over 200 carriers across the Southwest. Let me pull up a quick profile based on typical trucking operations.",
+      text: "Trucking is one of our core specialties. We work with over 200 carriers across the Southwest. Let me pull up a quick profile based on typical trucking operations.",
       card: {
         type: "business-info",
         data: {
@@ -144,9 +144,9 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       conclusion:
         "How much are you currently invoicing per month? This helps me estimate your funding.",
       quickReplies: [
-        { label: "$10K – $50K/mo", value: "invoicing 25000 monthly" },
-        { label: "$50K – $150K/mo", value: "invoicing 100000 monthly" },
-        { label: "$150K+/mo", value: "invoicing 200000 monthly" },
+        { label: "$10K – $50K/mo", value: "Invoicing $25,000/month" },
+        { label: "$50K – $150K/mo", value: "Invoicing $100,000/month" },
+        { label: "$150K+/mo", value: "Invoicing $200,000/month" },
       ],
     },
   },
@@ -163,7 +163,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       "industrial",
     ],
     response: {
-      text: "Manufacturing is a great fit for factoring — long payment cycles and steady receivables. We've funded everything from food processing to aerospace parts.",
+      text: "Manufacturing is a great fit for factoring because of the long payment cycles and steady receivables. We've funded everything from food processing to aerospace parts.",
       card: {
         type: "business-info",
         data: {
@@ -181,9 +181,9 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       conclusion:
         "How much are you currently invoicing per month? This helps me estimate your funding.",
       quickReplies: [
-        { label: "$25K – $75K/mo", value: "invoicing 50000 monthly" },
-        { label: "$75K – $250K/mo", value: "invoicing 150000 monthly" },
-        { label: "$250K+/mo", value: "invoicing 350000 monthly" },
+        { label: "$25K – $75K/mo", value: "Invoicing $50,000/month" },
+        { label: "$75K – $250K/mo", value: "Invoicing $150,000/month" },
+        { label: "$250K+/mo", value: "Invoicing $350,000/month" },
       ],
     },
   },
@@ -219,9 +219,9 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       conclusion:
         "How much are you currently invoicing per month? This helps me estimate your funding.",
       quickReplies: [
-        { label: "$50K – $150K/mo", value: "invoicing 100000 monthly" },
-        { label: "$150K – $500K/mo", value: "invoicing 300000 monthly" },
-        { label: "$500K+/mo", value: "invoicing 600000 monthly" },
+        { label: "$50K – $150K/mo", value: "Invoicing $100,000/month" },
+        { label: "$150K – $500K/mo", value: "Invoicing $300,000/month" },
+        { label: "$500K+/mo", value: "Invoicing $600,000/month" },
       ],
     },
   },
@@ -241,7 +241,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       "government",
     ],
     response: {
-      text: "No problem — we work with businesses across dozens of industries. If you have invoices from creditworthy customers, you're likely a great fit.",
+      text: "We work with businesses across dozens of industries. If you have invoices from creditworthy customers, you're likely a great fit.",
       card: {
         type: "business-info",
         data: {
@@ -259,9 +259,9 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       conclusion:
         "How much are you currently invoicing per month? This helps me estimate your funding.",
       quickReplies: [
-        { label: "$10K – $50K/mo", value: "invoicing 25000 monthly" },
-        { label: "$50K – $150K/mo", value: "invoicing 100000 monthly" },
-        { label: "$150K+/mo", value: "invoicing 200000 monthly" },
+        { label: "$10K – $50K/mo", value: "Invoicing $25,000/month" },
+        { label: "$50K – $150K/mo", value: "Invoicing $100,000/month" },
+        { label: "$150K+/mo", value: "Invoicing $200,000/month" },
       ],
     },
   },
@@ -272,16 +272,17 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
     triggers: [
       "invoicing",
       "monthly",
+      "month",
       "revenue",
       "volume",
-      "25000",
-      "50000",
-      "100000",
-      "150000",
-      "200000",
-      "300000",
-      "350000",
-      "600000",
+      "$25,000",
+      "$50,000",
+      "$100,000",
+      "$150,000",
+      "$200,000",
+      "$300,000",
+      "$350,000",
+      "$600,000",
       "$10k",
       "$25k",
       "$50k",
@@ -289,7 +290,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       "$150k",
     ],
     response: {
-      text: "Based on your invoice volume, here's a preliminary funding estimate. These numbers are based on our standard advance rates — your actual terms may be even better.",
+      text: "Based on your invoice volume, here's a preliminary funding estimate. These numbers are based on our standard advance rates, and your actual terms may be even better.",
       card: {
         type: "funding-estimate",
         data: {
@@ -359,7 +360,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
       "target",
     ],
     response: {
-      text: "I ran a preliminary credit check on typical customers in your segment. This is what determines your approval — we look at your customers' creditworthiness, not yours.",
+      text: "I ran a preliminary credit check on typical customers in your segment. This is what determines your approval because we look at your customers' creditworthiness, not yours.",
       card: {
         type: "customer-credit",
         data: {
@@ -405,14 +406,14 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
     id: "b-plus-explain",
     triggers: ["b+", "review", "fair", "regional supply"],
     response: {
-      text: "A B+ rating doesn't mean denial — it means we do a deeper look. Regional Supply Co has a fair payment history, averaging 45 days. We can still factor those invoices, potentially at a slightly adjusted advance rate (90-92% instead of 95%).",
+      text: "A B+ rating doesn't mean denial, it means we do a deeper look. Regional Supply Co has a fair payment history, averaging 45 days. We can still factor those invoices, potentially at a slightly adjusted advance rate (90-92% instead of 95%).",
       conclusion:
         "Want to see the full document checklist to get started?",
       quickReplies: [
         { label: "Show me the documents", value: "what documents needed" },
         {
           label: "Sounds good, let's proceed",
-          value: "what documents needed",
+          value: "proceed with documents",
         },
       ],
     },
@@ -421,9 +422,9 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
   // ── Step 5: Document Checklist ──
   {
     id: "documents",
-    triggers: ["document", "paperwork", "needed", "upload", "submit", "file"],
+    triggers: ["document", "paperwork", "needed", "upload", "submit", "file", "proceed"],
     response: {
-      text: "Here's everything we need. Most clients have these ready to go — and you can upload them right here when you're ready.",
+      text: "Here's everything we need. Most clients have these ready to go, and you can upload them right here when you're ready.",
       card: {
         type: "document-checklist",
         data: {
@@ -473,7 +474,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
     id: "summary",
     triggers: ["summary", "overview", "compile", "application", "review all"],
     response: {
-      text: "Here's your complete application overview. Everything looks strong — you're pre-qualified based on what we've discussed.",
+      text: "Here's your complete application overview. Everything looks strong and you're pre-qualified based on what we've discussed.",
       card: {
         type: "application-summary",
         data: {
@@ -578,7 +579,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
     id: "question",
     triggers: ["question", "ask", "wonder", "curious", "explain", "how does"],
     response: {
-      text: "Of course — I'm here to help. Invoice factoring is simple: you sell your unpaid invoices to us at a small discount, and we advance you up to 95-97% of the value the same day. We then collect from your customer. It's not a loan — there's no debt on your books.",
+      text: "Happy to explain. Invoice factoring is simple: you sell your unpaid invoices to us at a small discount, and we advance you up to 95-97% of the value the same day. We then collect from your customer. It's not a loan, so there's no debt on your books.",
       quickReplies: [
         { label: "How fast is funding?", value: "how fast funding" },
         { label: "What are the fees?", value: "tell me about fees" },
@@ -590,7 +591,7 @@ export const CONVERSATION_STEPS: ConversationStep[] = [
 
 // Default fallback response
 export const FALLBACK_RESPONSE: BotResponse = {
-  text: "I didn't quite catch that, but no worries — I'm here to help you get funded. Let me know what you'd like to explore.",
+  text: "I didn't quite catch that, but I'm here to help you get funded. Let me know what you'd like to explore.",
   quickReplies: [
     { label: "Start my application", value: "get started" },
     { label: "How does factoring work?", value: "question about process" },
